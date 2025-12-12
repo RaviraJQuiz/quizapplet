@@ -1,5 +1,5 @@
 {
-  "project": {
-    "rootDirectory": "quiz-app"
-  }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
