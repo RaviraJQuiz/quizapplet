@@ -1,6 +1,7 @@
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import { useEffect, useState } from "react";
+import { saveScore } from "../firebase/leaderboard";
 
 const Quiz = () => {
   const [questions, setQuestions] = useState([]);
@@ -29,6 +30,13 @@ const Quiz = () => {
 
   return <div>{questions.length} questions loaded</div>;
 };
+
+await saveScore({
+  name: "Guest",
+  score: correctAnswers,
+  total: questions.length,
+  timeTaken
+});
 
 export default Quiz;
 const fetchQuestions = async () => {
