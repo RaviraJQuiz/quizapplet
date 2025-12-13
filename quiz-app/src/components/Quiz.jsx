@@ -9,7 +9,7 @@ const Quiz = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const snapshot = await getDocs(collection(db, "questions"));
+        const snapshot = await getDocs(collection(db, "questions-test"));
         const data = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
