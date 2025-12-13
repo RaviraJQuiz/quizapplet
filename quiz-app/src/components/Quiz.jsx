@@ -31,3 +31,17 @@ const Quiz = () => {
 };
 
 export default Quiz;
+const fetchQuestions = async () => {
+  const ref = collection(db, "questions-test");
+  const snapshot = await getDocs(ref);
+
+  console.log("Firestore snapshot:", snapshot);
+  console.log("Docs size:", snapshot.size);
+
+  snapshot.forEach(doc => {
+    console.log("DOC:", doc.id, doc.data());
+  });
+
+  setQuestions(snapshot.docs.map(d => d.data()));
+};
+
